@@ -2,7 +2,7 @@
 
 **Reduce LLM token usage by 40-60% with AI-powered JSON compression**
 
-Transform verbose JSON into compact TOON (Table-Oriented Object Notation) format using advanced entropy optimization. Perfect for reducing costs and context window usage when working with LLMs like GPT-4, Claude, and Gemini.
+Transform verbose JSON into compact TOON (Table-Oriented Object Notation) format using advanced entropy optimization. Perfect for reducing costs and context window usage when working with LLMs like GPT-4, Claude, and Gemini 
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com)
