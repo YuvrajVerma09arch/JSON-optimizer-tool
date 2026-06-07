@@ -1,13 +1,13 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from validators.token_validator import TOKEN_validator
+from .validators.token_validator import TOKEN_validator
 import json
 from typing import Dict, Any
-from models import OptimizationResponse, TOONMetadata, TokenStats, FieldEntropy
-from detectors import TOONDetector
-from optimizers import EntropyOptimizer
-from formatters import TOONFormatter
+from .models import OptimizationResponse, TOONMetadata, TokenStats, FieldEntropy
+from .detectors import TOONDetector
+from .optimizers import EntropyOptimizer
+from .formatters import TOONFormatter
 app = FastAPI(
     title="TOON JSON Optimizer",
     description="Reduce LLM tokens by 40-60% using Table-Oriented Object Notation",
