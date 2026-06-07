@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 from typing import List, Any
 
 class TOONFormatter:
@@ -31,8 +32,19 @@ class TOONFormatter:
         return toon_output
     
     def _format_value(self, value: Any) -> str:
-       
-        if pd.isna(value) or value is None:
+        
+        # 1. Catch absolute None first
+        if value is None:
+            return "null"
+            
+        # 2. Intercept complex JSON structures before Pandas touches them
+        if isinstance(value, (list, dict)):
+            # Serialize them safely to strings so they fit in the TOON cell
+            # json.dumps is safer than str() because it preserves double quotes properly
+            value = json.dumps(value) 
+            
+        # 3. Now guaranteed to be a scalar, pd.isna() is perfectly safe
+        if pd.isna(value):
             return "null"
         
         if isinstance(value, bool):
