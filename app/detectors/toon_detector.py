@@ -23,12 +23,6 @@ class TOONDetector:
         if not all(isinstance(item, dict) for item in data):
             return False, {"error": "Array contains non-dict items"}
         
-        first_keys = set(data[0].keys())
-        
-        uniform = all(set(item.keys()) == first_keys for item in data)
-        
-        if not uniform:
-            return False, {"error": "Non-uniform keys across array items"}
         
         try:
             df = pd.json_normalize(data)
