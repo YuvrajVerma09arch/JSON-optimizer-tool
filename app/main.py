@@ -47,6 +47,12 @@ async def health_check():
         }
     }
 
+from fastapi import Response
+
+@app.head("/")
+async def health_head():
+    return Response(status_code=200)
+
 @app.post("/upload", response_model=OptimizationResponse)
 async def optimize_json(file: UploadFile = File()):
     warnings = []
